@@ -6,16 +6,13 @@ export default class Todo extends Component {
     constructor(props) {
         super(props)
     
-        this.state = {
-            isStrikeThrough:true,
-        }
-
+      
         this.onClickDone = this.onClickDone.bind(this);
         this.onMarkDone = this.onMarkDone.bind(this);
     }
     
     onClickDone(){
-        this.onMarkDone();
+        this.onMarkDone(this.props.todo.id);
     }
 
     onMarkDone() {
@@ -35,8 +32,9 @@ export default class Todo extends Component {
 
     render() {
         const todo = this.props.todo;
+        console.log(todo)
         return (
-            <div onClick={this.onClickDone}>
+            <div onClick={this.onMarkDone}>
                 {todo.content}
             </div>
         )

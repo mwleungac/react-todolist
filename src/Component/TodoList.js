@@ -11,7 +11,8 @@ export default class TodoList extends Component {
     }
 
     render() {
-        const {todoList , onMarkDone} = this.props;
+        const {todoList, onMarkDone} = this.props.todoList;
+        console.log(todoList)
         return (
             <div>
                 {

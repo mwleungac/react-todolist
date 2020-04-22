@@ -33,8 +33,7 @@ export default class TodoContainer extends Component {
 
     render() {
         return (
-            <div>
-                
+            <div>       
                 <TodoList todoList={this.state.todoList} onMarkDone={this.onMarkDone}/>
             </div>
         )
