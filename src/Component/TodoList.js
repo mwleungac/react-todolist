@@ -2,24 +2,27 @@ import React, { Component } from 'react'
 import Todo from '../Component/Todo'
 
 export default class TodoList extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             
+        }
+    }
+
     render() {
-        const todoList = this.props.TodoList;
+        const {todoList , onMarkDone} = this.props;
         return (
             <div>
                 {
                     todoList.map(todo => (
-                        <Todo key={todo.id} todo={todo}/>
+                        <Todo key={todo.id} todo={todo} onMarkDone={onMarkDone}/>
                     ))
                 }
-                TodoList
+        
                 <Todo/>
             </div>
         )
     }
 }
 
-TodoList.propTypes = {
-
-}
-
-export default TodoList

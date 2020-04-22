@@ -6,13 +6,29 @@ export default class Todo extends Component {
     constructor(props) {
         super(props)
     
-        this.onClickDone = this.onMarkDone.bind(this)
+        this.state = {
+            isStrikeThrough:true,
+        }
+
+        this.onClickDone = this.onClickDone.bind(this);
+        this.onMarkDone = this.onMarkDone.bind(this);
     }
     
     onClickDone(){
-        this.onMarkDone(this.props.todo.id);
+        this.onMarkDone();
     }
 
+    onMarkDone() {
+        const todo = this.props.todo;
+        this.props.todo.status=!this.props.todo.status;
+        this.props.onMarkDone(todo);
+        this.setState((prevState) => {
+            return {
+             
+            };
+          });
+
+    }
     static propTypes = {
         prop: PropTypes
     }
@@ -20,7 +36,9 @@ export default class Todo extends Component {
     render() {
         const todo = this.props.todo;
         return (
-            <div onClick={this.onMarkDone}>{todo.content}</div>
+            <div onClick={this.onClickDone}>
+                {todo.content}
+            </div>
         )
     }
 }

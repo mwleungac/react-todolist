@@ -20,9 +20,16 @@ export default class TodoContainer extends Component {
         prop: PropTypes
     }
 
-    onMarkDone(){
-
-    }
+    onMarkDone(todo){        
+        const indexOfItem = this.state.todoList.indexOf(todo);
+  
+        this.setState((prevState) => {
+          return {
+            todoList: this.state.todoList
+          };
+        });
+  
+      }
 
     render() {
         return (
